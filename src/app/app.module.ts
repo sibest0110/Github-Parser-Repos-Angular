@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http'
 
 import { AppComponent } from './app.component';
 import { MainTableComponent } from './views/main-table/main-table.component';
@@ -10,7 +11,8 @@ import { MainTableComponent } from './views/main-table/main-table.component';
     MainTableComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
