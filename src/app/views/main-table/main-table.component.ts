@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { DataHandlerService } from 'src/app/services/data-handler.service';
+import { DataHandlerService, repoSortedBy, repoType } from 'src/app/services/data-handler.service';
 
 @Component({
   selector: 'app-main-table',
@@ -14,8 +14,8 @@ export class MainTableComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    let q = this.dataHandler.getRepos('https://api.github.com/orgs/microsoft/repos', 2, 2);
-    console.log(q);
+    // let q = this.dataHandler.getRepos({url:"https://api.github.com/orgs/microsoft/repos"});
+    // console.log(q);
     
   }
 }
