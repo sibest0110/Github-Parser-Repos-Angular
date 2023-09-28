@@ -1,1 +1,18 @@
-<p>main-table works!</p>
+<dx-data-grid 
+    id="gridContainer"
+    [dataSource]="dataSource"
+    [showBorders]="true">    
+    <dxo-paging [pageSize]="10"></dxo-paging>
+    <dxo-pager 
+        [showPageSizeSelector]="true"
+        [allowedPageSizes]="[10, 20, 50, 100]"
+        [showInfo]="true">
+    </dxo-pager>
+    
+    <dxi-column dataField="name"></dxi-column>
+    <dxi-column dataField="language"></dxi-column>
+    <dxi-column dataField="dateOfLastPush"></dxi-column>
+    <dxi-column dataField="isArch"></dxi-column>
+    <dxi-column dataField="linkUrl"></dxi-column>
+</dx-data-grid>
+

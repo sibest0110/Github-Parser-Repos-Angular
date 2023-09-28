@@ -67,7 +67,7 @@ export class DataHandlerService {
               obj['name'],
               obj['language'] ?? "",
               new Date(obj['pushed_at']),
-              obj['archived'] == 'true' ? true : false,
+              obj['archived'] == 'true' ? 'Да' : 'Нет',
               obj['html_url'])
           );
         }
