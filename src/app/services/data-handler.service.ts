@@ -66,7 +66,7 @@ export class DataHandlerService {
             new RepoRow(
               obj['name'],
               obj['language'] ?? "",
-              new Date(obj['pushed_at']),
+              new Date(obj['pushed_at']).toLocaleDateString('ru-RU', RepoRow.dateOptions),
               obj['archived'] == 'true' ? 'Да' : 'Нет',
               obj['html_url'])
           );
