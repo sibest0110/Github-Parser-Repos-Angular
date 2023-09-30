@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { RepoRow } from '../model/repo-row';
+import { IssueRow } from '../model/issue-row';
 
 export enum repoSortedBy {created='created', updated='updated', pushed='pushed', full_name='full_name'};
 export enum repoSortedDirection {asc='asc', desc='desc'};
@@ -10,11 +11,9 @@ export enum repoType {all='all', public='public', private='private', forks='fork
   providedIn: 'root'
 })
 export class DataHandlerService {
-  
 
   constructor(private httpClient: HttpClient) { }
 
-  // getRepos(url:string, repoPerPage?:number, page?:number, sortedBy?:sortedBy, sortedDirection?:sortedDirection, repoType?:repoType): RepoRow[]{
   getRepos({
     url='https://api.github.com/orgs/microsoft/repos',
     repoPerPage=undefined,
@@ -78,5 +77,26 @@ export class DataHandlerService {
     return result;
   }
 
+  getIssues(repoName: string, perPage: number): IssueRow[]{
+    let url:string = `https://api.github.com/repos/microsoft/${repoName}/issues?state=all&sort=created&per_page=${perPage}`;
+    let result: IssueRow[] = [];
 
+    this.httpClient.get(url).subscribe({
+      next: (data: any) => {
+        // alert("Данные получены успешно");
+        // console.log(data);
+        for (const obj of data) {
+          result.push(
+            new IssueRow(
+              new Date(obj['created_at']).toLocaleDateString('ru-RU', IssueRow.dateOptions),
+              obj['title'],
+              obj['body'])
+          );
+        }
+      },
+      error: error => alert("Не удалось получить данные")
+    });
+
+    return result;
+  }
 }
