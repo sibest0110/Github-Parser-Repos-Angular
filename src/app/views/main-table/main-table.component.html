@@ -15,9 +15,9 @@
     
     <dxo-selection mode="single"></dxo-selection>
     <dxi-column caption="Репозиторий" dataField="name"></dxi-column>
-    <dxi-column caption="Язык" dataField="language"></dxi-column>
+    <dxi-column caption="Язык" dataField="language" [allowSorting]="false"></dxi-column>
     <dxi-column caption="Дата последнего Push" dataField="dateOfLastPush"></dxi-column>
-    <dxi-column caption="Архивный" dataField="isArch"></dxi-column>
-    <dxi-column caption="Ссылка" dataField="linkUrl"></dxi-column>
+    <dxi-column caption="Архивный" dataField="isArch" [allowSorting]="false"></dxi-column>
+    <dxi-column caption="Ссылка" dataField="linkUrl" [allowSorting]="false"></dxi-column>
 </dx-data-grid>
 
