@@ -20,18 +20,29 @@ export class MainTableComponent implements OnInit {
     }
 
   ngOnInit(): void {
+    this.loadingVisible = true;
     this.repoSource = this.dataHandler.getRepos({url:"https://api.github.com/orgs/microsoft/repos"});
+    this.loadingVisible = false;
     
   }
 
+  loadingVisible: boolean = true;
   popupVisible: boolean = false;
   selectedRepo: string = '';
+
+
   openIssuesOfRepo(e: any): void{
+    this.loadingVisible = true;
     this.popupVisible = true;
+
+
     this.selectedRepo = e.data.name;
     this.issuesSource = this.dataHandler.getIssues(this.selectedRepo, 15);
-    
+    this.loadingVisible = false;
+
   }
+
+
 
   cellTemplateFunc_href(cellElement:any, cellInfo:any){
     var subContainer = document.createElement('div');

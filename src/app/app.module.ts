@@ -7,6 +7,7 @@ import { MainTableComponent } from './views/main-table/main-table.component';
 
 import { DxDataGridModule } from 'devextreme-angular';
 import { DxPopupModule } from 'devextreme-angular';
+import { DxLoadPanelModule } from 'devextreme-angular';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { DxPopupModule } from 'devextreme-angular';
     BrowserModule,
     HttpClientModule,
     DxDataGridModule,
-    DxPopupModule
+    DxPopupModule,
+    DxLoadPanelModule
   ],
   providers: [],
   bootstrap: [AppComponent]

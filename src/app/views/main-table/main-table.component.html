@@ -15,11 +15,11 @@
     </dxo-pager>
     
     <dxo-selection mode="single"></dxo-selection>
-    <dxi-column caption="Репозиторий" dataField="name"></dxi-column>
-    <dxi-column caption="Язык" dataField="language" [allowSorting]="false"></dxi-column>
-    <dxi-column caption="Дата последнего Push" dataField="dateOfLastPush"></dxi-column>
-    <dxi-column caption="Архивный" dataField="isArch" [allowSorting]="false"></dxi-column>
-    <dxi-column caption="Ссылка" dataField="linkUrl" [allowSorting]="false" [cellTemplate]="cellTemplateFunc_href"></dxi-column>
+    <dxi-column caption="Репозиторий"           dataField="name"></dxi-column>
+    <dxi-column caption="Язык"                  dataField="language" [allowSorting]="false"></dxi-column>
+    <dxi-column caption="Дата последнего Push"  dataField="dateOfLastPush"></dxi-column>
+    <dxi-column caption="Архивный"              dataField="isArch" [allowSorting]="false"></dxi-column>
+    <dxi-column caption="Ссылка"                dataField="linkUrl" [allowSorting]="false" [cellTemplate]="cellTemplateFunc_href"></dxi-column>
 
 
 </dx-data-grid>
@@ -28,7 +28,7 @@
     id="popup"
     container=".dx-viewport"
     [(visible)]="popupVisible"
-    [(title)]="selectedRepo"
+    [title]="selectedRepo"
     [showCloseButton]="true"
     [enableBodyScroll]="false"
     >
@@ -41,10 +41,22 @@
         [hoverStateEnabled]="true"
         >
 
-        <dxi-column caption="Дата создания" dataField="date"></dxi-column>
-        <dxi-column caption="Название" dataField="header" [allowSorting]="false"></dxi-column>
-        <dxi-column caption="Содержание" dataField="text"></dxi-column>
+        <dxi-column caption="Дата создания" dataField="date"    [allowSorting]="false"></dxi-column>
+        <dxi-column caption="Название"      dataField="header"  [allowSorting]="false"></dxi-column>
+        <dxi-column caption="Содержание"    dataField="text"    [allowSorting]="false"></dxi-column>
 
 
     </dx-data-grid>
 </dx-popup>
+
+<dx-load-panel
+    #loadPanel
+    shadingColor="rgba(0,0,0,0.5)"
+    [(visible)]="loadingVisible"
+    [showIndicator]="true"
+    [showPane]="true"
+    [shading]="true"
+    [hideOnOutsideClick]="false"
+    >
+
+</dx-load-panel>
