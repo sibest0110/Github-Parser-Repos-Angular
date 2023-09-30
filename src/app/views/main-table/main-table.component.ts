@@ -14,10 +14,18 @@ export class MainTableComponent implements OnInit {
   constructor(
     private dataHandler: DataHandlerService,
     private httpClient: HttpClient){
+  
+    }
 
-  }
   ngOnInit(): void {
     this.dataSource = this.dataHandler.getRepos({url:"https://api.github.com/orgs/microsoft/repos"});
     
   }
+
+  cellTemplateFunc_href(cellElement:any, cellInfo:any){
+    var subContainer = document.createElement('div');
+    subContainer.innerHTML = "<a href='" + cellInfo.data.linkUrl + "'>"+ cellInfo.data.linkUrl + "</a>"
+  
+    cellElement.appendChild(subContainer);
+   } 
 }

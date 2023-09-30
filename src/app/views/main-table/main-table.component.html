@@ -18,6 +18,8 @@
     <dxi-column caption="Язык" dataField="language" [allowSorting]="false"></dxi-column>
     <dxi-column caption="Дата последнего Push" dataField="dateOfLastPush"></dxi-column>
     <dxi-column caption="Архивный" dataField="isArch" [allowSorting]="false"></dxi-column>
-    <dxi-column caption="Ссылка" dataField="linkUrl" [allowSorting]="false"></dxi-column>
+    <dxi-column caption="Ссылка" dataField="linkUrl" [allowSorting]="false" [cellTemplate]="cellTemplateFunc_href"></dxi-column>
+
+
 </dx-data-grid>
 
