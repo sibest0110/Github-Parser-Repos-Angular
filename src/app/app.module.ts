@@ -4,9 +4,10 @@ import { HttpClientModule } from '@angular/common/http'
 
 import { AppComponent } from './app.component';
 import { MainTableComponent } from './views/main-table/main-table.component';
+import { IssuesTableComponent } from './views/issues-table/issues-table.component';
 
 import { DxDataGridModule } from 'devextreme-angular';
-import { IssuesTableComponent } from './views/issues-table/issues-table.component';
+import { DxPopupModule } from 'devextreme-angular';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { IssuesTableComponent } from './views/issues-table/issues-table.componen
     BrowserModule,
     HttpClientModule,
     DxDataGridModule,
+    DxPopupModule
   ],
   providers: [],
   bootstrap: [AppComponent]
