@@ -59,7 +59,7 @@ export class DataHandlerService {
     
     this.httpClient.get(url).subscribe({
       next: (data: any) => {
-        alert("Данные получены успешно");
+        // alert("Данные получены успешно");
         // console.log(data);
         for (const obj of data) {
           result.push(
