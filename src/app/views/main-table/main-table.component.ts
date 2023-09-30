@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { DataHandlerService, repoSortedBy, repoType } from 'src/app/services/data-handler.service';
 import { RepoRow } from 'src/app/model/repo-row';
+import { IssueRow } from 'src/app/model/issue-row';
 
 @Component({
   selector: 'app-main-table',
@@ -9,7 +10,8 @@ import { RepoRow } from 'src/app/model/repo-row';
   styleUrls: ['./main-table.component.css']
 })
 export class MainTableComponent implements OnInit {
-  dataSource: RepoRow[] = [];
+  repoSource: RepoRow[] = [];
+  issuesSource: IssueRow[] = [];
 
   constructor(
     private dataHandler: DataHandlerService,
@@ -18,7 +20,16 @@ export class MainTableComponent implements OnInit {
     }
 
   ngOnInit(): void {
-    this.dataSource = this.dataHandler.getRepos({url:"https://api.github.com/orgs/microsoft/repos"});
+    this.repoSource = this.dataHandler.getRepos({url:"https://api.github.com/orgs/microsoft/repos"});
+    
+  }
+
+  popupVisible: boolean = false;
+  selectedRepo: string = '';
+  openIssuesOfRepo(e: any): void{
+    this.popupVisible = true;
+    this.selectedRepo = e.data.name;
+    this.issuesSource = this.dataHandler.getIssues(this.selectedRepo, 15);
     
   }
 
