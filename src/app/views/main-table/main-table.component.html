@@ -2,7 +2,9 @@
     id="gridContainer"
     [dataSource]="dataSource"
     [showBorders]="true"
-    [allowColumnResizing]="true">    
+    [allowColumnResizing]="true"
+    [hoverStateEnabled]="true"
+    >    
     <dxo-paging [pageSize]="10"></dxo-paging>
     <dxo-pager 
         [showPageSizeSelector]="true"
@@ -10,7 +12,7 @@
         [showInfo]="true">
     </dxo-pager>
     
-
+    <dxo-selection mode="single"></dxo-selection>
     <dxi-column caption="Репозиторий" dataField="name"></dxi-column>
     <dxi-column caption="Язык" dataField="language"></dxi-column>
     <dxi-column caption="Дата последнего Push" dataField="dateOfLastPush"></dxi-column>
