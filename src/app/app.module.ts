@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { MainTableComponent } from './views/main-table/main-table.component';
 
 import { DxDataGridModule } from 'devextreme-angular';
+import { IssuesTableComponent } from './views/issues-table/issues-table.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainTableComponent,
+    IssuesTableComponent,
   ],
   imports: [
     BrowserModule,
