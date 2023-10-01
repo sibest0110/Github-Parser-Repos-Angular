@@ -28,7 +28,7 @@ export class DataHandlerService {
     sortedBy?:repoSortedBy,
     sortedDirection?:repoSortedDirection,
     type?:repoType
-  }): RepoRow[]{
+  }): Promise<RepoRow[]>{
     let result: RepoRow[] = [];
     
     //#region Формирование url
@@ -74,10 +74,12 @@ export class DataHandlerService {
       error: error => alert("Не удалось получить данные")
     });
 
-    return result;
+    return new Promise((resolve, rej) => {
+      resolve(result);
+    });
   }
 
-  getIssues(repoName: string, perPage: number): IssueRow[]{
+  getIssues(repoName: string, perPage: number): Promise<IssueRow[]>{
     let url:string = `https://api.github.com/repos/microsoft/${repoName}/issues?state=all&sort=created&per_page=${perPage}`;
     let result: IssueRow[] = [];
 
@@ -97,6 +99,8 @@ export class DataHandlerService {
       error: error => alert("Не удалось получить данные")
     });
 
-    return result;
+    return new Promise((resolve, reject) => {
+      resolve(result);
+    });
   }
 }
