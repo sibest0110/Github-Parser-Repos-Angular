@@ -46,9 +46,12 @@ export class MainTableComponent implements OnInit {
     this.loadingVisible = await false;
   }
 
+  openIssue_handler(e: any){
+    window.open(e.data.linkUrl, '_blank');
+  }
 
 
-  cellTemplateFunc_href(cellElement:any, cellInfo:any){
+  cellTemplateFunc_href(cellElement: HTMLElement, cellInfo:any){
     var subContainer = document.createElement('div');
     subContainer.innerHTML = "<a target='_blank' href='" + cellInfo.data.linkUrl + "'>"+ cellInfo.data.linkUrl + "</a>"
   

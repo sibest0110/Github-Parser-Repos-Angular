@@ -104,7 +104,8 @@ export class DataHandlerService {
           new IssueRow(
             new Date(obj['created_at']).toLocaleDateString('ru-RU', IssueRow.dateOptions),
             obj['title'],
-            obj['body'])
+            obj['body'],
+            obj['html_url'])
         );
       }
     });

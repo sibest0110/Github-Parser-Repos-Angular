@@ -45,6 +45,7 @@
         [wordWrapEnabled]="true"
         [columnAutoWidth]="true"
         [allowColumnResizing]="true"
+        (onRowDblClick)="openIssue_handler($event)"
         >
 
         <dxi-column caption="Дата создания" dataField="date"    [allowSorting]="false"></dxi-column>
