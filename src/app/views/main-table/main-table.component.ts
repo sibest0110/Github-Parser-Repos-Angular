@@ -35,8 +35,7 @@ export class MainTableComponent implements OnInit {
   }
 
 
-  async openIssuesOfRepo(e: any) {
-    this.issuesSource = await [];
+  async openIssuesOfRepo_handler(e: any) {
     this.loadingVisible = await true;
     this.popupVisible = await true;
 
@@ -54,5 +53,9 @@ export class MainTableComponent implements OnInit {
     subContainer.innerHTML = "<a target='_blank' href='" + cellInfo.data.linkUrl + "'>"+ cellInfo.data.linkUrl + "</a>"
   
     cellElement.appendChild(subContainer);
-   } 
+   }
+
+   popupOnHidden_handler(e: any){
+    this.issuesSource = [];
+   }
 }

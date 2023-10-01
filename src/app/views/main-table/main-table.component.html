@@ -5,7 +5,7 @@
     [showColumnLines]="true"
     [allowColumnResizing]="true"
     [hoverStateEnabled]="true"
-    (onRowDblClick)="openIssuesOfRepo($event)"
+    (onRowDblClick)="openIssuesOfRepo_handler($event)"
     [wordWrapEnabled]="true">    
     <dxo-paging [pageSize]="10"></dxo-paging>
     <dxo-pager 
@@ -32,6 +32,8 @@
     [title]="selectedRepo"
     [showCloseButton]="true"
     [enableBodyScroll]="false"
+    [resizeEnabled]="true"
+    (onHidden)="popupOnHidden_handler($event)"
     >
 
     <dx-data-grid
