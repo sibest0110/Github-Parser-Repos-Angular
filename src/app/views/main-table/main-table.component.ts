@@ -36,6 +36,7 @@ export class MainTableComponent implements OnInit {
 
 
   async openIssuesOfRepo(e: any) {
+    this.issuesSource = await [];
     this.loadingVisible = await true;
     this.popupVisible = await true;
 
