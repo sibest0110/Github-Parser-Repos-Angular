@@ -25,13 +25,13 @@ export class MainTableComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadingVisible = true;
-    this.repoSource = this.dataHandler.getRepos1000({ url: "https://api.github.com/orgs/microsoft/repos"});
+    // this.repoSource = this.dataHandler.getRepos1000({ url: "https://api.github.com/orgs/microsoft/repos"});
 
-    // let repoPromise = this.dataHandler.getRepos({ url: "https://api.github.com/orgs/microsoft/repos"});
-    // repoPromise
-    //   .then(data => {
-    //     this.repoSource = data;
-    //   });
+    let repoPromise = this.dataHandler.getRepos({ url: "https://api.github.com/orgs/microsoft/repos"});
+    repoPromise
+      .then(data => {
+        this.repoSource = data;
+      });
     this.loadingVisible = false;
 
   }
