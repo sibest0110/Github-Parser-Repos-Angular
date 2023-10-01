@@ -61,7 +61,7 @@ export class DataHandlerService {
     return result;
   }
 
-  getRepos({
+  async getRepos({
     url='https://api.github.com/orgs/microsoft/repos',
     repoPerPage=undefined,
     page=undefined,
@@ -121,9 +121,10 @@ export class DataHandlerService {
       error: error => alert("Не удалось получить данные")
     });
 
-    return new Promise((resolve, rej) => {
-      resolve(result);
-    });
+    return result
+    // return new Promise((resolve, rej) => {
+    //   resolve(result);
+    // });
   }
 
   getIssues(repoName: string, perPage: number): Promise<IssueRow[]>{
