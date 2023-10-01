@@ -23,39 +23,35 @@ export class MainTableComponent implements OnInit {
   popupVisible: boolean = false;
   selectedRepo: string = '';
 
-  ngOnInit(): void {
-    this.loadingVisible = true;
-    // this.repoSource = this.dataHandler.getRepos1000({ url: "https://api.github.com/orgs/microsoft/repos"});
+  ngOnInit():void {
+    this.loadRepos();
+  }
 
-    let repoPromise = this.dataHandler.getRepos({ url: "https://api.github.com/orgs/microsoft/repos"});
-    repoPromise
-      .then(data => {
-        this.repoSource = data;
-      });
-    this.loadingVisible = false;
-
+  async loadRepos() {
+    this.loadingVisible = await true;
+    this.repoSource = await this.dataHandler.getRepos({ url: "https://api.github.com/orgs/microsoft/repos"});
+    // this.repoSource = await this.dataHandler.getRepos1000({ url: "https://api.github.com/orgs/microsoft/repos"});
+    this.loadingVisible = await false;
+    return;
   }
 
 
-  openIssuesOfRepo(e: any): void{
-    this.loadingVisible = true;
-    this.popupVisible = true;
+  async openIssuesOfRepo(e: any) {
+    this.loadingVisible = await true;
+    this.popupVisible = await true;
 
-    this.selectedRepo = e.data.name;
+    this.selectedRepo = await e.data.name;
 
-    let issuesPromise = this.dataHandler.getIssues(this.selectedRepo, 15);
-    issuesPromise.then(data => {
-      this.issuesSource = data;
-      this.loadingVisible = false;
-    });
+    this.issuesSource = await this.dataHandler.getIssues(this.selectedRepo, 15);
 
+    this.loadingVisible = await false;
   }
 
 
 
   cellTemplateFunc_href(cellElement:any, cellInfo:any){
     var subContainer = document.createElement('div');
-    subContainer.innerHTML = "<a href='" + cellInfo.data.linkUrl + "'>"+ cellInfo.data.linkUrl + "</a>"
+    subContainer.innerHTML = "<a target='_blank' href='" + cellInfo.data.linkUrl + "'>"+ cellInfo.data.linkUrl + "</a>"
   
     cellElement.appendChild(subContainer);
    } 
