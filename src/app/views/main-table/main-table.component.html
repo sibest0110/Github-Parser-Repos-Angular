@@ -5,7 +5,8 @@
     [showColumnLines]="true"
     [allowColumnResizing]="true"
     [hoverStateEnabled]="true"
-    (onRowDblClick)="openIssuesOfRepo($event)">    
+    (onRowDblClick)="openIssuesOfRepo($event)"
+    [wordWrapEnabled]="true">    
     <dxo-paging [pageSize]="10"></dxo-paging>
     <dxo-pager 
         [showPageSizeSelector]="true"
@@ -39,6 +40,7 @@
         [showBorders]="true"
         [showColumnLines]="true"
         [hoverStateEnabled]="true"
+        [wordWrapEnabled]="true"
         >
 
         <dxi-column caption="Дата создания" dataField="date"    [allowSorting]="false"></dxi-column>
