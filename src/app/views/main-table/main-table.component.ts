@@ -30,9 +30,8 @@ export class MainTableComponent implements OnInit {
   async loadRepos() {
     this.loadingVisible = await true;
     this.repoSource = await this.dataHandler.getRepos({ url: "https://api.github.com/orgs/microsoft/repos"});
-    // this.repoSource = await this.dataHandler.getRepos1000({ url: "https://api.github.com/orgs/microsoft/repos"});
     this.loadingVisible = await false;
-    return;
+    return ;
   }
 
 
