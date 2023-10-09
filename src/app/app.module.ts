@@ -9,6 +9,8 @@ import { DxDataGridModule } from 'devextreme-angular';
 import { DxPopupModule } from 'devextreme-angular';
 import { DxLoadPanelModule } from 'devextreme-angular';
 import { TestPrizmComponent } from './views/test-prizm/test-prizm.component';
+import { PrizmButtonModule } from "@prizm-ui/components";
+import {  } from "@prizm-ui/icons";
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import { TestPrizmComponent } from './views/test-prizm/test-prizm.component';
     HttpClientModule,
     DxDataGridModule,
     DxPopupModule,
-    DxLoadPanelModule
+    DxLoadPanelModule,
+    PrizmButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
